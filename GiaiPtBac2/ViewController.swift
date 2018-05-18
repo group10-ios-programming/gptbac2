@@ -32,6 +32,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func reset(_ sender: UIButton) {
+        txta.text = ""
+        txtb.text = ""
+        txtc.text = ""
+        lblResult1.text = ""
+        lblResult2.text = ""
+        lblResult1.isHidden = true
+        lblResult2.isHidden = true
+    }
+    
     // kiem tra hop le
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
         let aSet = NSCharacterSet(charactersIn: "0123456789.-").inverted
@@ -54,7 +64,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var c:Double=0
         if(txta.text == "" || txtb.text == "" || txtc.text == ""
             || txta.text == "-" || txtb.text == "-" || txtc.text == "-"){
-            lblResult1.text = "Kiem tra lai dinh dang!"
+            lblResult1.text = "Kiểm tra lại định dạng!"
             return
         }
         //
