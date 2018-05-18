@@ -56,17 +56,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return string == numberFiltered
     }
     
+    func check(){
+        if(txta.text == ""){lblResult1.text = "Chưa nhập a!"}
+        else if (txta.text == "-") {lblResult1.text = "Kiểm tra lại định dạng của a!"}
+        else if(txtb.text == ""){lblResult1.text = "Chưa nhập b!"}
+        else if (txtb.text == "-") {lblResult1.text = "Kiểm tra lại định dạng của b!"}
+        else if(txtc.text == ""){lblResult1.text = "Chưa nhập c!"}
+        else if (txtc.text == "-") {lblResult1.text = "Kiểm tra lại định dạng của c!"}
+    }
+    
     @IBAction func GiaiPT(_ sender: UIButton) {
         lblResult2.text = ""
+        lblResult1.text = ""
         lblResult1.isHidden = false
+        
         var a:Double=0
         var b:Double=0
         var c:Double=0
-        if(txta.text == "" || txtb.text == "" || txtc.text == ""
-            || txta.text == "-" || txtb.text == "-" || txtc.text == "-"){
-            lblResult1.text = "Kiểm tra lại định dạng!"
-            return
-        }
+        
+        check()
+        
+        if(lblResult1.text != ""){ return}
+        
         //
         if txta.text != ""{
             a = Double(txta.text!)!
