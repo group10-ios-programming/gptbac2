@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var txta: UITextField!
     @IBOutlet weak var txtb: UITextField!
@@ -22,9 +22,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         lblResult1.isHidden = true
         lblResult2.isHidden = true
-        txta.delegate = self as? UITextFieldDelegate
-        txtb.delegate = self as? UITextFieldDelegate
-        txtc.delegate = self as? UITextFieldDelegate
+        txta.delegate = self
+        txtb.delegate = self
+        txtc.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,14 +52,14 @@ class ViewController: UIViewController {
         var a:Double=0
         var b:Double=0
         var c:Double=0
-        if(txta.text == "" || txtb.text == "" || txtc.text == ""){
-            lblResult1.text = "Hay nhap day du gia tri cho a, b, c"
+        if(txta.text == "" || txtb.text == "" || txtc.text == ""
+            || txta.text == "-" || txtb.text == "-" || txtc.text == "-"){
+            lblResult1.text = "Kiem tra lai dinh dang!"
             return
         }
         //
         if txta.text != ""{
             a = Double(txta.text!)!
-            
         }
         if txtb.text != ""{
             b = Double(txtb.text!)!
